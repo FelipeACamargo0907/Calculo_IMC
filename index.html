@@ -4,26 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de IMC</title>
+    <title>Cálculo de IMC</title>
+    <style>
+            h1{
+                color: rgb(31, 94, 175);
+                margin-bottom: 3pc;
+            }
+            body{
+                background-color: rgb(245, 245, 245);
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-weight: bold;
+                margin-left: 10%;
+            }
+            .input {
+                margin-top: 6px;
+                margin-bottom: 4px;
+                padding: 6px;
+                font-size: 16px;
+                border-radius: 10px;
+                border-width: 0.4px;
+                border-style: solid;
+                border-color: rgb(31, 94, 175);                                                                     
+                box-shadow: 0 0 px rgba(0, 0, 0, 0.2);
+            }
+            button {
+                margin-top: 10px;
+                padding: 10px 25px;
+                font-size: 16px;
+                border-radius: 20px;
+                border: none;
+                background-color: rgb(31, 94, 175);
+                color: #fff;
+                cursor: pointer;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            }
+            button:hover {
+                background-color: rgb(0, 42, 96);
+            }
+            h3{
+                margin-top: 20px;
+                padding: 10px 25px;
+                font-size: 20px;
+                border-radius: 20px;
+                width: 35%;
+                background-color: rgb(255, 82, 2);
+                color: #fff;
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);  
+            }
+    </style>
 </head>
 <body>
-    <h1>Calculadora de IMC</h1>
-    <div class="inputs">
+    <h1>Cálculo de IMC</h1>
+    <div>
         <span>Altura <small>(ex: 1,80)</small></span><br>
-        <input id="altura" type="text" placeholder="Metros" maxlength="4"><br><br>
+        <input class="input" id="altura" type="text" placeholder="Metros" maxlength="4"><br><br>
     </div>
-    <div class="inputs">
+    <div>
         <span>Peso <small>(ex: 80,5)</small></span><br>
-        <input id="peso" type="text" placeholder="Quilos" maxlength="6"><br><br>
+        <input class="input" id="peso" type="text" placeholder="Quilos" maxlength="6"><br><br>
     </div>
-    <select id="sexo" class="select">
-        <option value="">Sexo</option>
-        <option value="Masculino">Masculino</option>
-        <option value="Feminino">Feminino</option>
-    </select>
-    <br><br>
-    <button class="A" type="button" onclick="Calcular()">Calcular</button><br><br>
-    <h3 id="resultado"></h3>
+
+    <div>
+        <span>Sexo</span><br>
+        <select class="input" class="select" id="sexo" class="select">
+            <option value=""></option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+        </select>
+    </div>
+    <br>
+    <button type="button" onclick="Calcular()">Calcular</button><br><br>
+    <h3 id="resultado">Seu IMC:</h3>
     
     
     <script>
@@ -53,7 +104,7 @@
             else 
                 classificacao = "Verifique seu peso e altura e tente novamente!";
 
-            document.getElementById("resultado").innerText = "Seu sexo é: "+sexo+"\n"+"Seu resultado foi de: "+imc.toFixed(2)+"\n"+"Sua classificação é: "+classificacao;
+            document.getElementById("resultado").innerText = "Seu IMC: "+imc.toFixed(2)+"\n\n"+"Classificação: "+classificacao+"\n\n"+"Sexo: "+sexo;
         }
 
 
